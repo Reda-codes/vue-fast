@@ -1,0 +1,201 @@
+{
+    "customers": [
+        {
+            "name": "Ronald W Zartarian Dmd",
+            "email": "Ronald@rwz.com",
+            "phone": "+1 212 6525485",
+            "website": "rwz.com",
+            "location": [40.68943897400017, -74.04487264572114],
+            "spending": {
+                "current": 48000,
+                "lastYear": 12000
+            },
+            "activity": [
+                {
+                    "title": "Costumer is due to order Cleaning Supplies",
+                    "amount": {
+                        "status": true,
+                        "sum": "640"
+                    },
+                    "message": "Last purchased a year ago"
+                },
+                {
+                    "title": "Costumer just ordered a new door lock",
+                    "amount": {
+                        "status": true,
+                        "sum": "33"
+                    },
+                    "message": "First time purchase"
+                },
+                {
+                    "title": "Costumer is due to order Personal Protective Equipments",
+                    "amount": {
+                        "status": true,
+                        "sum": 600
+                    },
+                    "message": "Last purchased a month ago"
+                },
+                {
+                    "title": "Costumer is due to order Desk Supplies",
+                    "amount": {
+                        "status": true,
+                        "sum": 1200
+                    },
+                    "message": "Last purchased a month ago"
+                }
+            ],
+            "notifications": [
+                {
+                    "type": "feedback",
+                    "title": "Viewed online",
+                    "product": {
+                        "id": 1
+                    },
+                    "date": "2023-08-8 08:26:49.219717"
+                },
+                {
+                    "type": "feedback",
+                    "title": "Viewed online",
+                    "product": {
+                        "id": 4
+                    },
+                    "date": "2023-08-8 08:26:49.219717"
+                },
+                {
+                    "type": "data",
+                    "title": "Wallet share",
+                    "amount": {
+                        "current": 2800,
+                        "lastYear": 4500
+                    },
+                    "message": "Consumer is underspending in Personal Protective Equipments"
+                }
+            ],
+            "notes": [
+                {
+                    "type": "Call Note",
+                    "message": "Had a great conversation."
+                }
+            ]
+        },
+        {
+            "name": "Alice Johnson",
+            "email": "alice@example.com",
+            "phone": "+1 123 4567890",
+            "website": "aliceco.com",
+            "location": [37.774929, -122.419418],
+            "spending": {
+                "current": 22000,
+                "lastYear": 18000
+            },
+            "activity": [
+                {
+                    "title": "Costumer is due to order Computer Accessories",
+                    "amount": {
+                        "status": true,
+                        "sum": "350"
+                    },
+                    "message": "Last purchased 2 months ago"
+                },
+                {
+                    "title": "Costumer just ordered a Coffee Machine",
+                    "amount": {
+                        "status": true,
+                        "sum": "150"
+                    },
+                    "message": "First time purchase"
+                }
+            ],
+            "notifications": [
+                {
+                    "type": "feedback",
+                    "title": "Viewed online",
+                    "product": {
+                        "id": 2
+                    },
+                    "date": "2023-08-8 10:15:27.129318"
+                }
+            ],
+            "notes": [
+                {
+                    "type": "Call Note",
+                    "message": "Had a great conversation."
+                }
+            ]
+        },
+        {
+            "name": "John Smith",
+            "email": "john@example.com",
+            "phone": "+1 987 6543210",
+            "website": "smithco.com",
+            "location": [34.052235, -118.243683],
+            "spending": {
+                "current": 38000,
+                "lastYear": 32000
+            },
+            "activity": [
+                {
+                    "title": "Costumer is due to order Office Furniture",
+                    "amount": {
+                        "status": true,
+                        "sum": "800"
+                    },
+                    "message": "Last purchased 3 months ago"
+                },
+                {
+                    "title": "Costumer just ordered a Wireless Headset",
+                    "amount": {
+                        "status": true,
+                        "sum": "120"
+                    },
+                    "message": "First time purchase"
+                },
+                {
+                    "title": "Costumer is due to order Desk Supplies",
+                    "amount": {
+                        "status": true,
+                        "sum": 900
+                    },
+                    "message": "Last purchased 2 weeks ago"
+                }
+            ],
+            "notifications": [
+                {
+                    "type": "feedback",
+                    "title": "Viewed online",
+                    "product": {
+                        "id": 3
+                    },
+                    "date": "2023-08-8 14:53:05.876532"
+                }
+            ],
+            "notes": []
+        }
+    ],
+    "products": [
+        {
+            "id": 1,
+            "name": "Cleaning Supplies"
+        },
+        {
+            "id": 2,
+            "name": "Computer Accessories"
+        },
+        {
+            "id": 3,
+            "name": "Office Furniture"
+        },
+        {
+            "id": 4,
+            "name": "Personal Protective Equipments"
+        },
+        {
+            "id": 5,
+            "name": "Coffee Machine"
+        },
+        {
+            "id": 6,
+            "name": "Wireless Headset"
+        }
+    ]
+}
