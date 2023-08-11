@@ -317,9 +317,9 @@ const switchView = (val) => {
                                 <div class="flex">
                                     <img v-if="item.type === 'feedback'" src="https://placehold.co/50x70/" alt="" class="w-1/3 mr-3">
                                     <div v-if="item.type === 'feedback'" class="pt-5">
-                                        <h3 class="text-sm lg:text-base font-bold lg:pb-2">{{ item.product.name }}</h3>
-                                        <h3 class="text-sm ">{{'Viewed ' + formatDate(item.date) }}</h3>
-                                        <button class="mt-5 p-2 bg-yellow-500 rounded-2xl text-sm lg:text-sm">
+                                        <h3 class=" font-bold lg:pb-2">{{ item.product.name }}</h3>
+                                        <h3 class=" ">{{'Viewed ' + formatDate(item.date) }}</h3>
+                                        <button class="mt-5 p-2 bg-yellow-500 rounded-2xl w-full">
                                             Add to Order
                                         </button>
                                     </div>
