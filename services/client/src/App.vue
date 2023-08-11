@@ -1,6 +1,7 @@
 <script setup>
 import {  onMounted } from 'vue'
 import NavBar from './components/NavBar.vue';
+import  DashBoard from './components/DashBoard.vue';
 import { useData } from './stores/data';
 
 const dataStore = useData();
@@ -10,9 +11,6 @@ onMounted(() => {
   dataStore.fetchInitialData();
 });
 
-const log = () => {
-  console.log(dataStore.data);
-}
 </script>
 
 <template>
@@ -21,10 +19,7 @@ const log = () => {
   </header>
 
   <main>
-  <div>
-    <p>Hello World</p>
-    <button @click="log" >Click</button>
-  </div>
+    <DashBoard />
   </main>
 </template>
 

@@ -13,34 +13,22 @@
             "activity": [
                 {
                     "title": "Costumer is due to order Cleaning Supplies",
-                    "amount": {
-                        "status": true,
-                        "sum": "640"
-                    },
+                    "sum": "640",
                     "message": "Last purchased a year ago"
                 },
                 {
                     "title": "Costumer just ordered a new door lock",
-                    "amount": {
-                        "status": true,
-                        "sum": "33"
-                    },
+                    "sum": "33",
                     "message": "First time purchase"
                 },
                 {
                     "title": "Costumer is due to order Personal Protective Equipments",
-                    "amount": {
-                        "status": true,
-                        "sum": 600
-                    },
+                    "sum": 600,
                     "message": "Last purchased a month ago"
                 },
                 {
                     "title": "Costumer is due to order Desk Supplies",
-                    "amount": {
-                        "status": true,
-                        "sum": 1200
-                    },
+                    "sum": 1200,
                     "message": "Last purchased a month ago"
                 }
             ],
@@ -49,7 +37,7 @@
                     "type": "feedback",
                     "title": "Viewed online",
                     "product": {
-                        "id": 1
+                        "name": "Personal Protective Equipments"
                     },
                     "date": "2023-08-8 08:26:49.219717"
                 },
@@ -57,7 +45,7 @@
                     "type": "feedback",
                     "title": "Viewed online",
                     "product": {
-                        "id": 4
+                        "name": "Cleaning Supplies"
                     },
                     "date": "2023-08-8 08:26:49.219717"
                 },
@@ -68,13 +56,22 @@
                         "current": 2800,
                         "lastYear": 4500
                     },
+                    "note": "Similar customers are spend $5000 in this category",
                     "message": "Consumer is underspending in Personal Protective Equipments"
                 }
             ],
             "notes": [
                 {
                     "type": "Call Note",
-                    "message": "Had a great conversation."
+                    "message": "Had a great meeting."
+                },
+                {
+                    "type": "Call Note",
+                    "message": "Had a great meeting."
+                },
+                {
+                    "type": "Meeting Note",
+                    "message": "Sorry i was not able to continue."
                 }
             ]
         },
@@ -91,18 +88,12 @@
             "activity": [
                 {
                     "title": "Costumer is due to order Computer Accessories",
-                    "amount": {
-                        "status": true,
-                        "sum": "350"
-                    },
+                    "sum": "350",
                     "message": "Last purchased 2 months ago"
                 },
                 {
                     "title": "Costumer just ordered a Coffee Machine",
-                    "amount": {
-                        "status": true,
-                        "sum": "150"
-                    },
+                    "sum": "150",
                     "message": "First time purchase"
                 }
             ],
@@ -111,7 +102,7 @@
                     "type": "feedback",
                     "title": "Viewed online",
                     "product": {
-                        "id": 2
+                        "name": "Computer Accessories"
                     },
                     "date": "2023-08-8 10:15:27.129318"
                 }
@@ -126,7 +117,7 @@
         {
             "name": "John Smith",
             "email": "john@example.com",
-            "phone": "+1 987 6543210",
+            "phone": "+19876543210",
             "website": "smithco.com",
             "location": [34.052235, -118.243683],
             "spending": {
@@ -136,26 +127,17 @@
             "activity": [
                 {
                     "title": "Costumer is due to order Office Furniture",
-                    "amount": {
-                        "status": true,
-                        "sum": "800"
-                    },
+                    "sum": "800",
                     "message": "Last purchased 3 months ago"
                 },
                 {
                     "title": "Costumer just ordered a Wireless Headset",
-                    "amount": {
-                        "status": true,
-                        "sum": "120"
-                    },
+                    "sum": "120",
                     "message": "First time purchase"
                 },
                 {
                     "title": "Costumer is due to order Desk Supplies",
-                    "amount": {
-                        "status": true,
-                        "sum": 900
-                    },
+                    "sum": 900,
                     "message": "Last purchased 2 weeks ago"
                 }
             ],
@@ -164,38 +146,12 @@
                     "type": "feedback",
                     "title": "Viewed online",
                     "product": {
-                        "id": 3
+                        "name": "Computer Accessories"
                     },
                     "date": "2023-08-8 14:53:05.876532"
                 }
             ],
             "notes": []
-        }
-    ],
-    "products": [
-        {
-            "id": 1,
-            "name": "Cleaning Supplies"
-        },
-        {
-            "id": 2,
-            "name": "Computer Accessories"
-        },
-        {
-            "id": 3,
-            "name": "Office Furniture"
-        },
-        {
-            "id": 4,
-            "name": "Personal Protective Equipments"
-        },
-        {
-            "id": 5,
-            "name": "Coffee Machine"
-        },
-        {
-            "id": 6,
-            "name": "Wireless Headset"
         }
     ]
 }

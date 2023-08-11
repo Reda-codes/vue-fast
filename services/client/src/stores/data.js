@@ -8,6 +8,7 @@ export const useData = defineStore('data', {
 
     getters: {
         getData: (state) => state.data,
+        getCostumers: (state) => state.data?.costumers,
         getStatus: (state) => state.status,
     },
 

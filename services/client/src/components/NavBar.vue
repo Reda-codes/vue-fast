@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { onClickOutside } from '@vueuse/core'
+import { useUser } from '../stores/user';
 
 // Search field state
 const searchField = ref('all');
@@ -13,6 +14,9 @@ const target = ref(null)
 const ignore = ref(null)
 
 const input = ref("");
+
+const userStore = useUser()
+
 
 // Function to handle the searchField change
 const handleSelectChange = (event) => {
@@ -64,16 +68,22 @@ const searchSubmit = async () => {
 
         <!-- From 425px to 768px view for Tablets -->
         <div class="md:hidden w-full flex justify-between">
-            <div class="w-10 mr-5" >
+            <div v-if="!userStore.getUser.name" class="w-10 mr-5" >
                 <img src="/logo.png" alt="WebsiteLogo">
             </div>
+
             <!-- button to return to clients -->
-            <button type="button" class="items-center  w-15 h-15 text-white rounded-lg hidden" @click="close">
-                <svg class="w-8 h-8 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <button v-if="userStore.getUser.name"  type="button" class="items-center  w-15 h-15 text-white rounded-lg" @click="userStore.resetUser">
+                <svg  class="w-8 h-8 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path stroke-width="2" d="M13.83 19a1 1 0 0 1-.78-.37l-4.83-6a1 1 0 0 1 0-1.27l5-6a1 1 0 0 1 1.54 1.28L10.29 12l4.32 5.36a1 1 0 0 1-.78 1.64z"></path>
                 </svg>
             </button>
             
+            <!-- Client name when selected -->
+            <div v-if="userStore.getUser">
+                <h1 class="font-bold text-white pt-3 " >{{ userStore.getUser.name }}</h1>
+            </div>
+
             <!-- Hamburger Button -->
             <button ref="ignore" type="button" class="items-center p-2 w-10 w- h-10 text-white rounded-lg md:hidden" @click="handleHamburgerClick">
                 <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
@@ -94,10 +104,10 @@ const searchSubmit = async () => {
                 <form class="" @submit.prevent="searchSubmit">
                     <input type="text" class=" block rounded-md bg-white w-11/12 p-1 mx-auto mb-5 text-xs sm:text-xs md:text-base" placeholder="Search customers & products">
                     <div class="flex justify-around">
-                    <button type="submit" class="w-2/5 bg-white rounded-md">
+                    <button type="submit" class="w-2/5 bg-white rounded-md text-xs sm:text-xs md:text-base">
                         Search
                     </button>
-                    <select v-model="searchField" class="w-2/5 bg-white rounded-md p-1 align-middle text-xs sm:text-base" :class="searchField === 'all' ? 'text-gray-400' : 'text-gray-800'" @change="handleSelectChange">
+                    <select v-model="searchField" class="w-2/5 bg-white rounded-md p-1 align-middle text-xs sm:text-xs md:text-base" :class="searchField === 'all' ? 'text-gray-400' : 'text-gray-800'" @change="handleSelectChange">
                             <option value="all" class="text-gray-800" selected>All fields</option>
                             <option value="costumers" class="text-gray-800 bg-white">Costumers</option>
                             <option value="products" class="text-gray-800">Products</option>
