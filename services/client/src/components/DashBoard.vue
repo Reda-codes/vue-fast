@@ -246,38 +246,131 @@ const switchView = (val) => {
 
     <!-- Phone View -->
     <div class="md:hidden">
-        <div class="fixed w-full bg-gray-100 min-h-full border-r-2 border-r-gray-200 overflow-y-auto">
+        <div class=" w-full bg-gray-100 h-screen border-r-2 border-r-gray-200 overflow-y-auto">
             <!-- Client Selected View -->
-            <div v-if="userStore.getUser.name">
-                            <div class="">
-                                <h3 class="pt-4 pl-2 font-semibold mb-5 text-2xl">
-                                    Contact
+            <div v-if="userStore.getUser.name" class="overflow-y-scroll">
+                <div class="">
+                    <h3 class="pt-4 pl-2 font-semibold mb-5 text-2xl">
+                        Contact
+                    </h3>
+                    <div class="flex justify-around flex-wrap text-xs md:text-base lg:text-base xl:text-lg pl-2 pb-5">
+                        <a class="flex w-1/4 p-1 px-3 rounded-2xl bg-yellow-300 hover:bg-yellow-500" :href="'tel:' + userStore.getUser.phone" target="_blank">
+                            <svg class="w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+                            <path d="M3 5.5C3 14.0604 9.93959 21 18.5 21C18.8862 21 19.2691 20.9859 19.6483 20.9581C20.0834 20.9262 20.3009 20.9103 20.499 20.7963C20.663 20.7019 20.8185 20.5345 20.9007 20.364C21 20.1582 21 19.9181 21 19.438V16.6207C21 16.2169 21 16.015 20.9335 15.842C20.8749 15.6891 20.7795 15.553 20.6559 15.4456C20.516 15.324 20.3262 15.255 19.9468 15.117L16.74 13.9509C16.2985 13.7904 16.0777 13.7101 15.8683 13.7237C15.6836 13.7357 15.5059 13.7988 15.3549 13.9058C15.1837 14.0271 15.0629 14.2285 14.8212 14.6314L14 16C11.3501 14.7999 9.2019 12.6489 8 10L9.36863 9.17882C9.77145 8.93713 9.97286 8.81628 10.0942 8.64506C10.2012 8.49408 10.2643 8.31637 10.2763 8.1317C10.2899 7.92227 10.2096 7.70153 10.0491 7.26005L8.88299 4.05321C8.745 3.67376 8.67601 3.48403 8.55442 3.3441C8.44701 3.22049 8.31089 3.12515 8.15802 3.06645C7.98496 3 7.78308 3 7.37932 3H4.56201C4.08188 3 3.84181 3 3.63598 3.09925C3.4655 3.18146 3.29814 3.33701 3.2037 3.50103C3.08968 3.69907 3.07375 3.91662 3.04189 4.35173C3.01413 4.73086 3 5.11378 3 5.5Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span class="pl-1 mx-auto text-base"> Call </span>
+                        </a>
+                        <a class="flex w-1/4 p-1 px-3 rounded-2xl bg-yellow-300 hover:bg-yellow-500" :href="'mailto:' + userStore.getUser.email" target="_blank">
+                            <svg class="w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+                            <path d="M4 7.00005L10.2 11.65C11.2667 12.45 12.7333 12.45 13.8 11.65L20 7" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <rect x="3" y="5" width="18" height="14" rx="2" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <span class="pl-1 mx-auto text-base"> Email </span>
+                        </a>
+                        <a class="flex w-1/4 p-1 px-3 rounded-2xl bg-yellow-300 hover:bg-yellow-500" :href="'https://www.google.com/maps/place/' + userStore.getUser.location[0] + ',' + userStore.getUser.location[1]" target="_blank">
+                            <svg class="w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+                            <path d="M5.7 15C4.03377 15.6353 3 16.5205 3 17.4997C3 19.4329 7.02944 21 12 21C16.9706 21 21 19.4329 21 17.4997C21 16.5205 19.9662 15.6353 18.3 15M12 9H12.01M18 9C18 13.0637 13.5 15 12 18C10.5 15 6 13.0637 6 9C6 5.68629 8.68629 3 12 3C15.3137 3 18 5.68629 18 9ZM13 9C13 9.55228 12.5523 10 12 10C11.4477 10 11 9.55228 11 9C11 8.44772 11.4477 8 12 8C12.5523 8 13 8.44772 13 9Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span class="pl-1 mx-auto text-base"> Map </span>
+                        </a>
+                    </div>
+                    <h3 class="text-xs sm:text-base text-gray-800 ml-5 mb-4 font-semibold" >Total spending (Vs Last year)</h3>
+                    <div v-if="userStore.getUser.spending.current > userStore.getUser.spending.lastYear">
+                        <h3 class="text-3xl font-bold text-gray-800 ml-5">{{ "$" + userStore.getUser.spending.current }} <span class="text-blue-500">(+{{"$" + (userStore.getUser.spending.current - userStore.getUser.spending.lastYear) }})</span> </h3>
+                    </div>
+                    <div v-else>
+                        <h3 class="text-3xl font-bold text-gray-800 ml-5">{{ "$" + userStore.getUser.spending.current }} <span class="text-red-500">(-{{"$" + (userStore.getUser.spending.lastYear - userStore.getUser.spending.current) }})</span> </h3>
+                    </div>
+                    <h3 class="pt-8 pl-2 font-semibold mb-5 text-2xl">
+                        Recent Call Notes
+                    </h3>
+                    <div>
+                        <div class=" bg-gray-100">
+                            <div v-if="!userStore.getUser.notes[0]">
+                                <h3 class="p-2 text-center">
+                                    The user has not left any notes
                                 </h3>
-                                <div class="flex justify-around flex-wrap text-xs md:text-base lg:text-base xl:text-lg pl-2 pb-5">
-                                    <a class="flex w-1/4 p-1 px-3 rounded-2xl bg-yellow-300 hover:bg-yellow-500" :href="'tel:' + userStore.getUser.phone" target="_blank">
-                                        <svg class="w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
-                                        <path d="M3 5.5C3 14.0604 9.93959 21 18.5 21C18.8862 21 19.2691 20.9859 19.6483 20.9581C20.0834 20.9262 20.3009 20.9103 20.499 20.7963C20.663 20.7019 20.8185 20.5345 20.9007 20.364C21 20.1582 21 19.9181 21 19.438V16.6207C21 16.2169 21 16.015 20.9335 15.842C20.8749 15.6891 20.7795 15.553 20.6559 15.4456C20.516 15.324 20.3262 15.255 19.9468 15.117L16.74 13.9509C16.2985 13.7904 16.0777 13.7101 15.8683 13.7237C15.6836 13.7357 15.5059 13.7988 15.3549 13.9058C15.1837 14.0271 15.0629 14.2285 14.8212 14.6314L14 16C11.3501 14.7999 9.2019 12.6489 8 10L9.36863 9.17882C9.77145 8.93713 9.97286 8.81628 10.0942 8.64506C10.2012 8.49408 10.2643 8.31637 10.2763 8.1317C10.2899 7.92227 10.2096 7.70153 10.0491 7.26005L8.88299 4.05321C8.745 3.67376 8.67601 3.48403 8.55442 3.3441C8.44701 3.22049 8.31089 3.12515 8.15802 3.06645C7.98496 3 7.78308 3 7.37932 3H4.56201C4.08188 3 3.84181 3 3.63598 3.09925C3.4655 3.18146 3.29814 3.33701 3.2037 3.50103C3.08968 3.69907 3.07375 3.91662 3.04189 4.35173C3.01413 4.73086 3 5.11378 3 5.5Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
-                                        <span class="pl-1 mx-auto text-base"> Call </span>
-                                    </a>
-                                    <a class="flex w-1/4 p-1 px-3 rounded-2xl bg-yellow-300 hover:bg-yellow-500" :href="'mailto:' + userStore.getUser.email" target="_blank">
-                                        <svg class="w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
-                                        <path d="M4 7.00005L10.2 11.65C11.2667 12.45 12.7333 12.45 13.8 11.65L20 7" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                        <rect x="3" y="5" width="18" height="14" rx="2" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
-                                        </svg>
-                                        <span class="pl-1 mx-auto text-base"> Email </span>
-                                    </a>
-                                    <a class="flex w-1/4 p-1 px-3 rounded-2xl bg-yellow-300 hover:bg-yellow-500" :href="'https://www.google.com/maps/place/' + userStore.getUser.location[0] + ',' + userStore.getUser.location[1]" target="_blank">
-                                        <svg class="w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
-                                        <path d="M5.7 15C4.03377 15.6353 3 16.5205 3 17.4997C3 19.4329 7.02944 21 12 21C16.9706 21 21 19.4329 21 17.4997C21 16.5205 19.9662 15.6353 18.3 15M12 9H12.01M18 9C18 13.0637 13.5 15 12 18C10.5 15 6 13.0637 6 9C6 5.68629 8.68629 3 12 3C15.3137 3 18 5.68629 18 9ZM13 9C13 9.55228 12.5523 10 12 10C11.4477 10 11 9.55228 11 9C11 8.44772 11.4477 8 12 8C12.5523 8 13 8.44772 13 9Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
-                                        <span class="pl-1 mx-auto text-base"> Map </span>
-                                    </a>
-                                </div>
-                                <h3 class="text-xs sm:text-base text-gray-800 ml-5 font-semibold" >Total spending (Vs Last year)</h3>
-                                
-
                             </div>
+                            <div v-for="(item, index) in userStore.getUser.notes" :key="index" class="p-2 border-2 border-gray-700 rounded-md m-4">
+                                <h3 class="font-bold">
+                                    {{  item.type }}
+                                </h3>
+                                <h3>
+                                    {{ item.message }}
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="pt-8 pl-2 font-semibold mb-5 text-2xl">
+                        Sales Play
+                    </h3>
+                    <div>
+                        <div v-for="(item, index) in userStore.getUser.notifications" :key="index" class="p-5">
+                            <div class="border-2 border-gray-300 bg-white w-full p-5">
+                                <div v-if="item.type === 'feedback'" class="p-2">
+                                    <h3 class="font-semibold">{{  item.title }}</h3>
+                                </div>
+                                <div v-else class="p-2">
+                                    <h3 class="font-semibold">{{  item.title }}</h3>
+                                </div>
+                                
+                                <div class="flex">
+                                    <img v-if="item.type === 'feedback'" src="https://placehold.co/50x70/" alt="" class="w-1/3 mr-3">
+                                    <div v-if="item.type === 'feedback'" class="pt-5">
+                                        <h3 class="text-sm lg:text-base font-bold lg:pb-2">{{ item.product.name }}</h3>
+                                        <h3 class="text-sm ">{{'Viewed ' + formatDate(item.date) }}</h3>
+                                        <button class="mt-5 p-2 bg-yellow-500 rounded-2xl text-sm lg:text-sm">
+                                            Add to Order
+                                        </button>
+                                    </div>
+                                    <div v-else>
+                                        <h3 class="font-semibold text-2xl mb-4 ml-2">{{ "$" + item.amount.current }}</h3>
+                                        <h3 class="m-2 font-semibold text-sm">{{ item.message }}</h3>
+                                        <div class="flex m-2">
+                                            <svg class="w-5 mr-2 text-orange-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+                                            <path opacity="0.1" d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" fill="rgb(234 88 12)"/>
+                                            <path d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="rgb(234 88 12)" stroke-width="2"/>
+                                            <path d="M12 8L12 13" stroke="rgb(234 88 12)" stroke-width="2" stroke-linecap="round"/>
+                                            <path d="M12 16V15.9888" stroke="rgb(234 88 12)" stroke-width="2" stroke-linecap="round"/>
+                                            </svg>
+                                            <h2 class="text-sm lg:text-base"> 
+                                                {{ item.note }}
+                                            </h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="pt-8 pl-2 font-semibold mb-5 text-2xl">
+                        Recent Activity
+                    </h3>
+                    <div class="w-full p-5">
+                        <div>
+                            <div v-for="(item, index) in userStore.getUser.activity" :key="index" class="p-5 ">
+                                <div class="border-2 border-gray-300 bg-white w-full p-5">
+                                    <h1 class="font-semibold text-2xl mb-4">
+                                        {{"$" + item.sum }}
+                                    </h1>
+                                    <h2 class="text-sm lg:text-base">
+                                        {{ item.title }}
+                                    </h2>
+                                    <div class="flex m-2">
+                                        <svg class="w-5 mr-2 text-orange-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+                                        <path opacity="0.1" d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" fill="rgb(234 88 12)"/>
+                                        <path d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="rgb(234 88 12)" stroke-width="2"/>
+                                        <path d="M12 8L12 13" stroke="rgb(234 88 12)" stroke-width="2" stroke-linecap="round"/>
+                                        <path d="M12 16V15.9888" stroke="rgb(234 88 12)" stroke-width="2" stroke-linecap="round"/>
+                                        </svg>
+                                        <h2 class="text-sm lg:text-base"> 
+                                            {{ item.message }}
+                                        </h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Clients list View-->
